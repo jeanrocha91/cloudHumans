@@ -5,9 +5,28 @@ from into import insertDados
 
 app = Flask(__name__)
 
+age = 1
+education_level = ["no_education", "high_school", "bachelors_degree_or_high"]
+
+{
+  "age": 35,
+  "education_level": "high_school"
+   }
+
+
 @app.route("/dados", methods=["GET"])
 def olaMundo():
-    return jsonify(insertDados), 200
+    return {"ola": "mundo"}
+
+@app.route('/date')
+def get_current_date():
+	favorite_pizza = {
+		"John": "Pepperoni",
+		"Mary": "Cheese"
+	}
+	return favorite_pizza
+
+
 
 #@app.route("/cadastra/usuario", methods=["POST"])
 #def cadastrarUsuario():
