@@ -18,7 +18,7 @@ internet_test = {
     "download_speed": 50.4,
     "upload_speed": 40.2
   }
-writing_score = 0
+writing_score = [0.0, 1.0]
 referral_code = "token1234"
 
 favorite_pizza = {
@@ -52,9 +52,38 @@ def olaMundo():
 def get_current_date():
 	return favorite_pizza
 
-@app.route('/data')
+@app.route('/data', methods=['GET'])
 def return_data():
-	return jsonify(data)
+	return jsonify({'Dados: ':data})
+
+@app.route('/data', methods=['POST'])
+def add_data():
+    if(datas)
+
+    datas = {'age' : request.json['age']}
+    
+    data.append(datas)
+    return jsonify({'Dados: ':data})
+
+@app.route("/json", methods=["POST"])
+def json_example():
+    if request.is_json:
+        req = request.get_json()
+        response_body = {
+            "message": "JSON received!",
+            "sender": req.get("name")
+        }
+        res = make_response(jsonify(response_body), 200)
+        return res
+    else:
+        return make_response(jsonify({"message": "Request body must be JSON"}), 400)
+
+
+
+
+
+
+
 
 #@app.route('/data-details', methods=["GET"])
 #def find_data():
